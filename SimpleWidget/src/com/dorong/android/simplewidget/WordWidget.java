@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-package com.example.android.simplewiktionary;
+package com.dorong.android.simplewidget;
 
-import com.example.android.simplewiktionary.SimpleWikiHelper.ApiException;
-import com.example.android.simplewiktionary.SimpleWikiHelper.ParseException;
+import com.dorong.android.simplewidget.SimpleWidgetHelper.ApiException;
+import com.dorong.android.simplewidget.SimpleWidgetHelper.ParseException;
+import com.dorong.android.simplewidget.R;
 
 import android.app.PendingIntent;
 import android.app.Service;
@@ -81,8 +82,8 @@ public class WordWidget extends AppWidgetProvider {
 
             try {
                 // Try querying the Wiktionary API for today's word
-                SimpleWikiHelper.prepareUserAgent(context);
-                pageContent = SimpleWikiHelper.getPageContent(pageName, false);
+                SimpleWidgetHelper.prepareUserAgent(context);
+                pageContent = SimpleWidgetHelper.getPageContent(pageName, false);
             } catch (ApiException e) {
                 Log.e("WordWidget", "Couldn't contact API", e);
             } catch (ParseException e) {
@@ -90,7 +91,7 @@ public class WordWidget extends AppWidgetProvider {
             }
 
             // Use a regular expression to parse out the word and its definition
-            Pattern pattern = Pattern.compile(SimpleWikiHelper.WORD_OF_DAY_REGEX);
+            Pattern pattern = Pattern.compile(SimpleWidgetHelper.WORD_OF_DAY_REGEX);
             Matcher matcher = pattern.matcher(pageContent);
             if (matcher.find()) {
                 // Build an update that holds the updated widget contents
@@ -102,8 +103,12 @@ public class WordWidget extends AppWidgetProvider {
                 updateViews.setTextViewText(R.id.definition, matcher.group(3).trim());
 
                 // When user clicks on widget, launch to Wiktionary definition page
+                /*
                 String definePage = res.getString(R.string.template_define_url,
                         Uri.encode(wordTitle));
+                        */
+                String definePage = res.getString(R.string.template_define_goto_url);
+                Log.v("The page", definePage);
                 Intent defineIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(definePage));
                 PendingIntent pendingIntent = PendingIntent.getActivity(context,
                         0 /* no requestCode */, defineIntent, 0 /* no flags */);

@@ -21,13 +21,6 @@
     android:focusable="true"
     style="@style/WidgetBackground">
 
-    <ImageView
-        android:id="@+id/icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:src="@drawable/star_logo" />
-
     <TextView
         android:id="@+id/word_title"
         android:layout_width="wrap_content"
@@ -44,7 +37,7 @@
         android:layout_width="0dip"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/word_title"
-        android:layout_toLeftOf="@id/icon"
+        android:layout_toLeftOf="@id/word_title"
         android:layout_alignBaseline="@id/word_title"
         android:paddingLeft="4dip"
         android:includeFontPadding="false"
@@ -64,16 +57,25 @@
 
     <TextView
         android:id="@+id/definition"
+        style="@style/Text.Definition"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/word_title"
         android:layout_toRightOf="@id/bullet"
-        android:paddingRight="5dip"
-        android:paddingBottom="4dip"
+        android:fadingEdge="vertical"
         android:includeFontPadding="false"
         android:lineSpacingMultiplier="0.9"
         android:maxLines="4"
-        android:fadingEdge="vertical"
-        style="@style/Text.Definition" />
+        android:paddingBottom="4dip"
+        android:paddingRight="5dip" />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/definition"
+        android:layout_alignTop="@+id/word_title"
+        android:contentDescription="@string/logo_def"
+        android:src="@drawable/giants_logo" />
 
 </RelativeLayout>

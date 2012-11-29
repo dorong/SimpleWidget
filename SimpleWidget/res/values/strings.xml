@@ -20,11 +20,14 @@
     <string name="template_user_agent" formatted="false">"%s/%s (Linux; Android)"</string>
     <string name="template_wotd_title" formatted="false">"Wiktionary:Word of the day/%s %s"</string>
     <string name="template_define_url" formatted="false">"http://en.wiktionary.org/wiki/%s"</string>
-
+    <string name="template_define_goto_url" formatted="false">"http://www.giants.com/"</string>
+    
+    
     <string name="widget_name">A Simple Widget</string>
 
-    <string name="widget_loading">Take That\nMotherfucker</string>
+    <string name="widget_loading">Take That Motherfucker</string>
     <string name="widget_error">No word of\nday found</string>
+    <string name="logo_def">Giants Motherfucker</string>
 
     <string-array name="month_names">
         <item>January</item>

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.simplewiktionary;
+package com.dorong.android.simplewidget;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -25,6 +25,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.dorong.android.simplewidget.R;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -43,7 +45,7 @@ import java.io.InputStream;
  * {@link #prepareUserAgent(Context)} to generate a User-Agent string based on
  * your application package name and version.
  */
-public class SimpleWikiHelper {
+public class SimpleWidgetHelper {
     private static final String TAG = "SimpleWikiHelper";
 
     /**
@@ -62,6 +64,9 @@ public class SimpleWikiHelper {
             "http://en.wiktionary.org/w/api.php?action=query&prop=revisions&titles=%s&" +
             "rvprop=content&format=json%s";
 
+    private static final String GIANTS_PAGE =
+    		"http://www.giants.com";
+    
     /**
      * Partial URL to append to {@link #WIKTIONARY_PAGE} when you want to expand
      * any templates found on the requested page. This is useful when browsing
